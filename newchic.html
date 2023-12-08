@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clothing website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .icon {
+            transition: transform 0.3s ease;
+        }
+        .icon:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        
+        .win{
+            padding-top: 1%;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .divider-line {
+            flex-grow: 1;
+            border-top: 1px solid #000;
+        }
+
+        .divider-text {
+            padding: 0 10px;
+        }
+        .signup-container,
+        .login-container {
+        position: fixed;
+        inset: 0;
+        background-color: white;
+        display: none;
+        z-index: 2;
+        filter: opacity(0.9);
+      }
+
+      
+      #signp-heading {
+        display: inline-block;
+        margin-right: 160px;
+        margin-bottom: 12px;
+        margin-top: 2px;
+      }
+      .wrong-btn {
+        font-size: 40px;
+        cursor: pointer;
+      }
+      .sign-up {
+        display: none;
+        position: fixed;
+        min-height: 90vh;
+        margin: 4px 30%;
+        z-index: 3;
+        border: 2px solid black;
+        padding: 10px 20px;
+        background-color:whitesmoke;
+        border-radius: 8px;
+      }
+      .input {
+        display: block;
+        margin-bottom: 10px;
+        padding: 16px;
+        font-size: 16px;
+        width: 300px;
+        font-weight: bold;
+      }
+      .create-btn {
+        cursor: pointer;
+        background-color: rgb(98, 54, 195);
+        color: white;
+        border-radius: 4px;
+        width: 334px;
+        padding: 8px 16px;
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+      .close-btn {
+        cursor: pointer;
+        background-color: black;
+        border-radius: 4px;
+        border-radius: 4px;
+        width: 334px;
+        padding: 8px 16px;
+        font-size: 20px;
+        color: white;
+      }
+      .trigger{
+          width: 10vw;
+          margin: 40px 40%;
+          background-color: rgb(22, 146, 151);
+          color: white;
+          padding: 8px;
+          border-radius: 12px;
+          font-size: 22px;
+          border: none;
+          cursor: pointer;
+      }
+
+        
+        
+    </style>
+        <script>
+            function openSignForm() {
+    document.getElementById("mySignForm").style.display = "block";
+    document.querySelector(".signup-container").style.display = "block";
+  }
+
+  function closeSignForm() {
+    document.getElementById("mySignForm").style.display = "none";
+    document.querySelector(".signup-container").style.display = "none";
+  }
+            $(document).ready(function() {
+                
+    
+                $('#signinForm').submit(function(e) {
+                    var emailInput = $('#email');
+                    var emailValue = emailInput.val();
+                    if (!emailValue.includes('@gmail.com')) {
+                        $('#emailErrorMessage').text('Please enter an email address');
+                        return;
+                    }
+         
+                    console.log('Form submitted');
+                });
+    
+                $('#email').keyup(function() {
+                    var emailValue = $(this).val();
+                    if (!emailValue.includes('@gmail.com')) {
+                        $('#emailErrorMessage').text('Please enter an email address');
+                    } else {
+                        $('#emailErrorMessage').text('');
+                    }
+                });
+
+                $('#signinForm').submit(function(e) {
+                    e.preventDefault();
+                    var emailInput = $('#email');
+                    var emailValue = emailInput.val();
+                    if (!emailValue.includes('@gmail.com')) {
+                        $('#emailErrorMessage').text('Please enter an email address');
+                        return;
+                    }
+                    
+                    console.log('Form submitted');
+                });
+    
+                $('#email').keyup(function() {
+                    var emailValue = $(this).val();
+                    if (!emailValue.includes('@gmail.com')) {
+                        $('#emailErrorMessage').text('Please enter an email address');
+                    } else {
+                        $('#emailErrorMessage').text('');
+                    }
+                });
+            });
+        </script>
+    
+</head>
+<body>
+    <div class="shadow  bg-white rounded">
+       <header class="container-fluid" style="background-color: lightgrey;padding-top: 1%;" >
+        <div class="row">
+            
+            <div class="col-2">
+            <h6 style="padding-top: 5%;"><a href="newchic.html"><span style="color:black">WOMEN </span></a><span style="padding-left: 24%;"><a href="men.html"><span style="color:#000">MEN</span></a></span></h6>
+            </div>
+            <div class="col-2">
+                <h1 style="padding-left:400px;">New<span style="color:red">chic</span></h1>
+            </div>
+            <div style="padding-left: 44%;padding-top: 1%;">
+                <i class="fas fa-user icon"></i>
+            </div>
+            <div style="padding-left: 3%;padding-top: 1%;">
+                <i class="fas fa-heart-crack icon"></i>0
+            </div>
+            <div style="padding-left: 3%;padding-top: 1%;">
+                <i class="fas fa-shopping-bag icon"></i>0
+            </div>
+            <div style="padding-left: 3%;padding-top: 1%;">
+                <i class="fa fa-headset icon"></i>
+            </div>
+            <div style="padding-left: 3%;padding-top: 1%;">
+                <i class="fas fa-flag icon" onclick="openSignForm()" class="trigger" ></i>
+                <!-- here -->
+            </div>
+            <div class="signup-container">
+                <form action="" id="mySignForm" class="sign-up">
+                  <h1
+                    id="signup-heading"
+                    style="
+                      display: inline-block;
+                      margin-right: 130px;
+                      margin-bottom: 12px;
+                      margin-top: 2px;
+                    "
+                  >
+                    Ship to
+                  </h1>
+                  <span class="wrong-btn" onclick="closeSignForm()">&times;</span>
+                  <input
+                    type="text"
+                    placeholder="india"
+                    required
+                    class="input"
+                  /><br>
+                  <p>Language</p>
+                  <input type="email" placeholder="English" required class="input" /><br>
+				  <p>Currency</P>
+                  <input
+                    type="password"
+                    placeholder="INR"
+                    required
+                    class="input"
+                  />
+                  <br>
+                  <button class="close-btn" onclick="closeSignForm()">OK</button>
+                  <br>
+                  <br>
+                </form>
+              </div>
+        </div>
+    </header>
+    
+    <div class="row" style="background-color:whitesmoke;">
+        <div class="col-10">
+            <nav class="nav">
+                <a class="nav-link" href="https://www.newchic.com/new-arrivals/women-3578/?utmid=11412&mg_id=1&from=nav&country=99"><span style="color:black">New In</span></a>
+                <a class="nav-link" href="https://www.newchic.com/womens-clothing-c-3578/?mg_id=1&from=nav&country=99&NA=1"><span style="color:black">Clothing</span></a>
+                <a class="nav-link" href="https://www.newchic.com/womens-tops-c-3604/?cateNew=2&from=nav&country=99&conversionType=US&mg_id=1&NA=1"><span style="color:black">Tops</span></a>
+                <a class="nav-link" href="https://www.newchic.com/plus-size-c-3946/?mg_id=1&from=nav&country=99&NA=1"><span style="color:black">Plus Size</span></a>
+                <a class="nav-link" href="https://www.newchic.com/womens-shoes-c-3592/?cateNew=1&from=nav&country=99&conversionType=US&mg_id=1&toppid=1839879%2C1839406%2C1813626&sort=1&NA=1"><span style="color:black">Shoes</span></a>
+                <a class="nav-link" href="https://www.newchic.com/women-bags-c-3590/?cateNew=2&from=nav&country=99&conversionType=US&mg_id=1&NA=1"><span style="color:black">Bags & Beauty</span></a>
+                <a class="nav-link" href="https://www.newchic.com/women-accessories-c-4172/?cateNew=1&from=nav&country=99&conversionType=US&mg_id=1&NA=1"><span style="color:black">Accessories</span></a>
+                <a class="nav-link" href="https://www.newchic.com/home-and-garden-c-4494/?mg_id=1&from=nav&country=99&NA=1"><span style="color:black">Home & Garden</span></a>
+                <a class="nav-link" href="https://www.newchic.com/clearance/?utmid=11414&mg_id=1&from=nav&country=99"><span style="color:black">Sale</span></a>
+                <a class="nav-link" href="https://www.newchic.com/brand.html?mg_id=1&from=nav"><span style="color:black">Brands</span></a>
+                <a class="nav-link" href="https://www.newchic.com/brand.html?mg_id=1&from=nav"><span style="color:black">Explore</span></a>
+            </nav>
+        </div>
+        <div class="col-2" style="padding-top: 0.5%;">
+            <div class="search-box">
+                <input type="text" placeholder="women outfit">
+                <i class="fas fa-search icon"></i>
+            </div>
+        </div>
+     
+    </div>
+    </div>
+    <br><br>
+    
+       
+       <div class="container-fluid" style="padding-left: 4%;">
+        <div class="shadow bg-white ">
+        
+            <div class="grid">
+                <div class="row">
+                <div class="col-6" style="padding-left: 10%;">
+                    <span style="padding-left: 3%;">
+                        <h3><b>Sign in</b></h3><br>
+                        <form id="signinForm">
+                            <div class="form-group">
+                            
+                                <input type="text" class="form-control" id="email" placeholder="E-mail address">
+                                <small id="emailErrorMessage" class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"></label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                
+                                </div><br>
+                                
+                                <center>
+                                    <a href="submit.html"><button type="submit" class="btn btn-dark" style="padding-left: 20%;padding-right: 20%;">Sign In</button></a>
+                                </center>
+                                <p style="color:rgb(1, 1, 13);text-align: center;padding-top:5%;"><a href="https://www.newchic.com/account/findpwd1.html">forgot your password?</a></p>
+                                <div class="divider">
+                                    <hr class="divider-line">
+                                    <span class="divider-text">OR</span>
+                                    <hr class="divider-line">
+                                </div>
+                                
+                            </form>
+                            </div>
+                            <center>
+                            <div class="social-buttons" >
+                                <button style=" padding-left: 6%; padding-right: 6%;"><a href="https://www.google.com" class="social-button google-button">
+                              
+                                    <span style="color:black">Google</span>
+                                </a>
+                                </button>
+                                <span style="padding-left: 3%;"></span>
+                                <button style="padding-left: 6%; padding-right: 6%;">
+                                <a href="https://www.facebook.com" class="social-button facebook-button">
+                                    
+                                    <span style="color:black">Facebook</span>
+                                </a>
+                                </button>
+                            </center>
+                        <br>
+                            <p>By sign in this way,you agree to our <u>terms & conditions</u> and <u>privacy policy</u></p>
+                            
+                        </span>
+                        
+                </div>
+                
+                <div class="col-6" style="padding-left: 7%;padding-right: 5%;">
+                    <span style="padding-left: 5%">
+                        <h3><b>Register</b></h3><br>
+                        <form id="signinForm">
+                            <div class="form-group">
+                            
+                                <input type="text" class="form-control" id="email" placeholder="E-mail address">
+                                <small id="emailErrorMessage" class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"></label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                
+                                </div><br>
+                                
+                                <input type="checkbox" required checkbox-hover> i agree to new chic <u>Terms & Conditions</u><br>
+                                <input type="checkbox" required> i agree to new chic <u>privacy policy</u><br>
+                                <input type="checkbox" required> Follow us to get newet information and <span style="color: red;"> 15% OFF</span> coupon<br><BR>
+                                <h6>STYLE PREFERENCE</h6>
+                                <button><i class="fa-solid fa-mars"></i> <a href="#"><span style="color:black"> Men fashion</span></a></button>
+                                 
+                                <span style="padding-left: 3%;"></span>
+                                <button> <i class="fa-solid fa-mars"></i> <a href="#"><span style="color:black"> Women fashion</span></a>
+                                </button>
+
+                                <br><br>
+                                    <button type="submit" class="btn btn-dark" style="padding-left: 30%;padding-right: 30%;">Register</button>
+                                                                    
+                    </span>
+                </div>
+                </div>
+
+            </div>
+                    
+        </div>
+        </div>
+                   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
