@@ -1,0 +1,81 @@
+git clone <repository_url>
+cd <repository_name>
+git add .
+git commit -m "Your commit message here"
+git push origin master
+git pull origin master
+git checkout -b feature-branch
+git checkout master
+git checkout master
+git merge feature-branch
+git remote add upstream <original_repository_url>
+git fetch upstream
+git merge upstream/master
+
+
+
+# Set your name and email (used for commits)
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+# Create a new directory
+mkdir my_project
+
+# Navigate to the project directory
+cd my_project
+
+# Initialize a Git repository
+git init
+# Create or modify files in your project
+
+# Add changes to the staging area
+git add .
+
+# Commit changes
+git commit -m "Initial commit"
+# View the status of your working directory
+git status
+# View a log of commits
+git log
+# Create a new branch
+git branch feature-branch
+
+# Switch to the new branch
+git checkout feature-branch
+
+# Shortcut to create and switch to a new branch
+git checkout -b feature-branch
+# Switch to the branch where you want to merge changes
+git checkout master
+
+# Merge changes from another branch
+git merge feature-branch
+# Git will mark the conflicted files
+# Open the files and resolve conflicts manually
+
+# Add resolved files to staging area
+git add <conflicted_file>
+
+# Complete the merge
+git merge --continue
+# Clone a repository from a URL
+git clone https://github.com/example/repo.git
+# Fetch changes from the remote repository
+git fetch
+
+# Merge fetched changes into your local branch
+git merge origin/master
+# Push changes to the remote repository
+git push origin master
+# Add a remote repository
+git remote add origin https://github.com/example/repo.git
+
+# View configured remote repositories
+git remote -v
+# Discard changes in the working directory
+git checkout -- <file>
+
+# Reset the staging area to the last commit
+git reset
+
+# Undo the last commit (use with caution)
+git reset --hard HEAD^
